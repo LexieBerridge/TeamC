@@ -1,0 +1,17 @@
+ADD YOUR PROBLEMS AND SOLUTIONS HERE
+
+
+MODULE NOT FOUND/CANNOT IMPORT
+check you've pip installed all the requirements
+check for misspellings especially capitals and plurals (or get Alex to check she's super good at it). Make your SQL
+tables singular to start with - avoid plurals
+
+SERVICE.PY NOT RECOGNISED/LINKING
+doesn't get recognised via application move it from the application folder to the main folder (where
+requirements and app are) do not pip install service! (it said on the internet to do this, it's something else and
+ it meant I had to start a new project because it kept looking for things to do with the service library/framework). If you
+ need to move the service file, or any file, I would recommend just making a new file and copy and pasting the contents
+ into it because Pycharm doesn't like linking it otherwise)
+
+TABLE UNKNOWN
+mispelling/not using the exact SQL table names in Python

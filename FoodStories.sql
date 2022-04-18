@@ -91,6 +91,7 @@ create table recipe_step (
 );
 
 create table liked (
+    liked_id int AUTO_INCREMENT PRIMARY KEY,
 	user_id int,
     FOREIGN KEY (user_id) REFERENCES user_table(user_id),
     recipe_id int,

@@ -83,14 +83,14 @@ create table quantity (
 );
 
 
-create table recipe_steps (
+create table recipe_step (
 	step_id int AUTO_INCREMENT PRIMARY KEY,
     step_description VARCHAR (400) NOT NULL,
     recipe_id int,
     FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id)
 );
 
-create table likes (
+create table liked (
 	user_id int,
     FOREIGN KEY (user_id) REFERENCES user_table(user_id),
     recipe_id int,

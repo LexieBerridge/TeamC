@@ -31,7 +31,9 @@ create table nutrition (
 );
 create table user_table (
 	user_id int AUTO_INCREMENT PRIMARY KEY,
-    user_name VARCHAR (10) NOT NULL,
+    user_name VARCHAR (20) NOT NULL,
+    user_surname VARCHAR(30) NOT NULL,
+    gender VARCHAR(20),
     user_age int
 );
 
@@ -43,8 +45,14 @@ create table recipe (
     cuisine VARCHAR (30) NOT NULL,
     prep_time VARCHAR (20) NOT NULL,
     cook_time VARCHAR (20) NOT NULL,
-    collection VARCHAR (50) NOT NULL
+    yield int NOT NULL
 );
+  ALTER TABLE recipe
+  DROP COLUMN recipe_description;
+ 
+ ALTER TABLE recipe
+  ADD recipe_desription varchar(1500) NOT NULL
+    AFTER recipe_name;
 
 create table food_item (
 	food_id int AUTO_INCREMENT PRIMARY KEY,
@@ -71,24 +79,24 @@ create table ingredient (
     category VARCHAR (50)
     );
 
+-- dropped table quantity
+-- create table quantity (
+-- quantity_id int AUTO_INCREMENT PRIMARY KEY,
+-- recipe_id int,
+-- FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id),
+-- ingredient_id int,
+-- FOREIGN KEY (ingredient_id) REFERENCES ingredient(ingredient_id),
+-- quantity VARCHAR (10) NOT NULL,
+-- measurement VARCHAR (10) NOT NULL
+-- );
 
-create table quantity (
-	quantity_id int AUTO_INCREMENT PRIMARY KEY,
-    recipe_id int,
-    FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id),
-    ingredient_id int,
-    FOREIGN KEY (ingredient_id) REFERENCES ingredient(ingredient_id),
-    quantity VARCHAR (10) NOT NULL,
-    measurement VARCHAR (10) NOT NULL
-);
-
-
-create table recipe_step (
-	step_id int AUTO_INCREMENT PRIMARY KEY,
-    step_description VARCHAR (400) NOT NULL,
-    recipe_id int,
-    FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id)
-);
+-- dropped table recipe_steps
+-- create table recipe_step (
+-- step_id int AUTO_INCREMENT PRIMARY KEY,
+-- step_description VARCHAR (400) NOT NULL,
+-- recipe_id int,
+-- FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id)
+-- );
 
 create table liked (
     liked_id int AUTO_INCREMENT PRIMARY KEY,
@@ -98,5 +106,17 @@ create table liked (
     FOREIGN KEY (recipe_id) REFERENCES recipe(recipe_id)
 );
 
-
-
+create table collection (
+	collection_id int AUTO_INCREMENT PRIMARY KEY,
+    collection_name VARCHAR(50),
+    collection_description VARCHAR (100)
+    );
+    
+    
+create table recipe_collection (
+	recipe_collection_id int AUTO_INCREMENT PRIMARY KEY,
+    collection_id int,
+    FOREIGN KEY (collection_id) references collection(collection_id),
+    recipe_id int,
+    FOREIGN KEY (recipe_id) references recipe(recipe_id)
+    );

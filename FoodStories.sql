@@ -258,5 +258,14 @@ values(1, "Winston", "Churchill", "Male", 78, "Win1", aes_encrypt('church789', '
  select user_id, username, cast(aes_decrypt(password, 'key1234') as char(100)) from user_table;
  
  select * from recipe;
+ 
+ INSERT INTO food_group (food_group_id, group_name, group_fact)
+ values(1, "Starchy Carbs", "Carbs give us energy and the slow release carbs are best"),
+	   (2, "Fruit", "Contains vitamins and minerals, an apple a day keeps the doctor away"),
+       (3, "Dairy", "Contains calcium for healthy teeth and stong bones"),
+       (4, "Protein", "Helps muscles to grow and repair, perfect for people who are doing lots of exercise"),
+       (5, "Fats", "Fat helps keep our organs safe but too much of it can be bad for your health"),
+       (6, "Vegetables", "Keep us healthy, make sure you have your five a day");
     
 
+select * from food_group;

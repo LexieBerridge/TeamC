@@ -11,8 +11,7 @@ class FoodGroup(db.Model):
 
     food_group_id: db.Column(db.Integer, primary_key=True)
     group_name: db.Column(db.String(20), nullable=False)
-    group_chart: db.Column(db.String(50))
+    group_chart: db.Column(db.String(200))
     group_fact: db.Column(db.String(500))
 
     food_item = db.relationship('FoodItem', backref='food_item')
-    # TODO: saving tinyblobs as (db.String(50) but this needs checking

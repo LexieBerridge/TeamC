@@ -1,5 +1,3 @@
-create database Foodstories;
-
 create database Foodstories2504;
 use foodstories2504;
 
@@ -41,8 +39,8 @@ create table gender (
 create table user_table (
 	user_id int AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR (20) NOT NULL,
-    user_surname VARCHAR(30) NOT NULL,
-    gender_id INT NOT NULL,
+    user_surname VARCHAR(30),
+    gender_id INT,
     FOREIGN KEY (gender_id) REFERENCES gender(gender_id),
     user_age int,
     username varchar(20) NOT NULL UNIQUE,
@@ -59,7 +57,7 @@ create table recipe (
     cuisine VARCHAR (30) NOT NULL,
     prep_time VARCHAR (20) NOT NULL,
     cook_time VARCHAR (20) NOT NULL,
-    yield int NOT NULL
+    serving int NOT NULL
 );
 select * from recipe;
 

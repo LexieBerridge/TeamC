@@ -5,13 +5,17 @@ from dataclasses import dataclass
 class FoodSource(db.Model):
     # the declarations below are important for turning the object into JSON
     source_id: int
+    source_name: str
     source_image: str
-    source_fact: str
-    source_season: str
+    source_fact1: str
+    source_fact2: str
+    source_fact3: str
 
     source_id: db.Column(db.Integer, primary_key=True)
-    group_image: db.Column(db.String(50))
-    group_fact: db.Column(db.String(10))
-    group_season: db.Column(db.String(10))
+    source_name: db.Column(db.String(15))
+    source_image: db.Column(db.String(200))
+    source_fact1: db.Column(db.String(500))
+    source_fact2: db.Column(db.String(500))
+    source_fact3: db.Column(db.String(500))
 
     food_item = db.relationship('FoodItem', backref='food_item')

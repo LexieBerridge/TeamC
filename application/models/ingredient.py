@@ -12,5 +12,3 @@ class Ingredient(db.Model):
     food_id = db.Column(db.Integer, db.ForeignKey('food_item.food_id'), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.recipe_id'), nullable=False)
     category = db.Column(db.String(50))
-
-    quantity = db.relationship('Quantity', backref='quantity')

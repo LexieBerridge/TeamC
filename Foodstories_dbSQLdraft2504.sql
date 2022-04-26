@@ -45,7 +45,7 @@ create table user_table (
     gender_id INT NOT NULL,
     FOREIGN KEY (gender_id) REFERENCES gender(gender_id),
     user_age int,
-    username varchar(20) NOT NULL, UNIQUE,
+    username varchar(20) NOT NULL UNIQUE,
     password varbinary(100) default null
 );
 
@@ -117,6 +117,9 @@ INSERT INTO food_group (food_group_id, group_name, group_fact)
        (4, "Protein", "Helps muscles to grow and repair, perfect for people who are doing lots of exercise"),
        (5, "Fats", "Fat helps keep our organs safe but too much of it can be bad for your health"),
        (6, "Vegetables", "Keep us healthy, make sure you have your five a day");
+
+INSERT INTO food_group (food_group_id, group_name, group_chart, group_fact)
+values  (7, "TEST","jetbrains://pycharm/navigate/reference?project=TEAMC&path=templates/Images/chicksquare.jpeg", "Does this image work");
 
 INSERT INTO food_source (source_id, source_name, source_fact1, source_fact2, source_fact3)
 values(1, "Vegetable", "Potatoes were the first food to be grown in space. In 1996, potato plants were taken into space with the space shuffle Columbia", "Broccoli in general has a great deal of protein. Calorie for calorie, there is more protein in broccoli than steak. Since it doesn’t come with all those saturated and trans fats or cholesterol, you can get all the protein you need with a significantly lower risk of cardiovascular disease.", "Fruits and veggies have a ton of fiber. It can help keep your bowel movements regular, help lower cholesterol, regulate blood sugar, and help you feel fuller for longer. Pretty much all of those things can lead to you feeling healthier, losing weight, and eating less bad food."),

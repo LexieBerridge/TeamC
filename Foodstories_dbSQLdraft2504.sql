@@ -1,3 +1,5 @@
+create database Foodstories;
+
 create database Foodstories2504;
 use foodstories2504;
 
@@ -41,6 +43,22 @@ create table user_table (
     username varchar(20) NOT NULL, UNIQUE,
     password varbinary(100) default null
 );
+
+create table gender (
+	gender_id int AUTO_INCREMENT PRIMARY KEY,
+    gender_name VARCHAR (20)
+);
+
+INSERT INTO gender ( gender_id, gender_name)
+values 
+	(1, "female"),
+    (2, "male"),
+    (3, "non-binary"),
+    (4, "agender"),
+    (5, "omnigender"),
+    (6, "prefer not to say");
+    
+
 
 create table recipe (
 	recipe_id int AUTO_INCREMENT PRIMARY KEY,
@@ -105,126 +123,7 @@ create table recipe_collection (
     recipe_id int,
     FOREIGN KEY (recipe_id) references recipe(recipe_id)
     );
-
-
-INSERT INTO food_group (food_group_id, group_name, group_fact)
- values(1, "Starchy Carbs", "Carbs give us energy and the slow release carbs are best"),
-	   (2, "Fruit", "Contains vitamins and minerals, an apple a day keeps the doctor away"),
-       (3, "Dairy", "Contains calcium for healthy teeth and stong bones"),
-       (4, "Protein", "Helps muscles to grow and repair, perfect for people who are doing lots of exercise"),
-       (5, "Fats", "Fat helps keep our organs safe but too much of it can be bad for your health"),
-       (6, "Vegetables", "Keep us healthy, make sure you have your five a day");
-
-INSERT INTO food_source (source_id, source_name, source_fact1, source_fact2, source_fact3)
-values(1, "Vegetable", "Potatoes were the first food to be grown in space. In 1996, potato plants were taken into space with the space shuffle Columbia", "Broccoli in general has a great deal of protein. Calorie for calorie, there is more protein in broccoli than steak. Since it doesn’t come with all those saturated and trans fats or cholesterol, you can get all the protein you need with a significantly lower risk of cardiovascular disease.", "Fruits and veggies have a ton of fiber. It can help keep your bowel movements regular, help lower cholesterol, regulate blood sugar, and help you feel fuller for longer. Pretty much all of those things can lead to you feeling healthier, losing weight, and eating less bad food."),
-	(2, "Root", "The exact balance between sugar, starch and water determines how sweet the root is — from mellow carrots to spiky radishes, from potatoes to peppery turnips", "In the 1600s, Dutch agriculturalists developed carrots that emphasized orange tints and phased out purple. The tinkering didn’t stop there: Researchers at Southern Illinois University report that the British developed high-carotene carrots during World War II in order to enhance pilots’ night vision. Today, geneticists are breeding carrots in a wide color spectrum, including purple, red and yellow, all with slightly different nutritional properties", "Roots’ main job is to deliver water and minerals. They are, in essence, the starting point of the plant’s vascular system. But roots also serve as a plant’s anchor; act as a repository for carbohydrates, sugars, and proteins; and ensure the plant’s survival during the long cold winter months"),
-    (3, "Stem", "Did you know that you can actually eat the stems of many different types of vegetables? For example, broccoli stems can be sliced thinly and sauteed in sesame oil. With that being said, though, the stem vegetable definition tends to focus on plants that are largely just, well, stems and stalks", "Many interesting products come from stems. Granulated sugar is processed from the above-ground stems of sugar cane and sugar beets. Maple sugar is obtained from the trunks of maple trees. Cinnamon comes from the bark of trees in the Cinnamomum genus.", "A stem is one of two main structural axes of a vascular plant, the other being the root. It supports leaves, flowers and fruits, transports water and dissolved substances between the roots and the shoots in the xylem and phloem, stores nutrients, and produces new living tissue."),
-    (4, "Leaf", "Basil fights cancer, lifts mood, combats stress and is beneficial in the flu. There are different types of basil leaves like sweet, Greek, Thai, holy, cinnamon, and lettuce basil, each with its unique set of health benefits. Sweet basil is considered healthy for the heart as well as the brain since it helps to reduce blood pressure, cholesterol, and also improve mental alertness.", "Many leaves of plants are edible and are grown for food. Edible leaves include cabbage, lettuce, grape leaves, parsley, spinach, mustard greens, and Swiss chard.", "The main function of a plant’s leaves is to gather energy from the sun to carry out photosynthesis and make food for the plant. During photosynthesis, leaves use light energy to convert carbon dioxide and water into sugar"),
-    (5, "Flower", "Herb flowers include think chives, lavender, rosemary, thyme, basil, dill, mint, sage, bee balm", "Chamomile is a floral herb used in cooking and traditional medicine for centuries. Medicinally, chamomile is often consumed to reduce anxiety and improve sleep quality", "Cauliflower and Broccoli are two plants whose flower are eaten as vegetables. Cauliflower and broccoli are the plants from cabbage family, whose flower is used to eat as vegetable."),
-    (6, "Fruit", "Tomatoes are very high in the carotenoid Lycopene; eating foods with carotenoids can lower your risk of cancer", "Bananas are a favorite fruit around the world. It tastes good, it’s high in potassium, and it’s delicious when placed in a dish with ice cream and chocolate syrup. Bananas are technically herbs.", "Fruits are an excellent source of essential vitamins and minerals, and they are high in fiber. Fruits also provide a wide range of health-boosting antioxidants, including flavonoids. Eating a diet high in fruits and vegetables can reduce a person's risk of developing heart disease, cancer, inflammation, and diabetes."),
-    (7, "Cereal", "People have been eating whole grains for more than 17,000 years – they picked seeds, rubbed off the husks and chewed the kernels raw or boiled them in water.", "Wheat is the most widely grown cereal grain. It’s grown on over 17 per cent of the total cultivated land in the world, and is the staple food for 35 per cent of the world’s population. It provides more calories and protein in the world’s diet than any other crop.", "Oats and rye were weeds that evolved to imitate wheat and barley to confuse farmers, and only later were farmed on purpose. "),
-    (8, "Oil", "Oils, depending upon the cuisine and the food, can be used in different ways: • For baking: Use butter or a vegetable oil (as it has medium smoking point) • For sautés: Use olive oil • For salads: Use nut oil like almond oil or fruit oil like olive oil", "fats give you energy and cooking oil contains a portion of Omega 3 and Omega 6 fatty acids, which the body cannot do without because it cannot produce these on its own.", "A small amount of dietary fat is an essential part of the diet. It provides us with essential fatty acids (those the body cannot make itself) and helps us to absorb the fat soluble vitamins A, D, E and K"),
-    (9, "Spices", "Spices were among the most demanded and expensive products available in Europe in the Middle Ages, the most common being black pepper, cinnamon (and the cheaper alternative cassia), cumin, nutmeg, ginger and cloves.", "Black pepper is the world’s most traded spice, and is one of the most common spices added to cuisines around the world. It is often described as the “king of spices,” and it shares a place on most dinner tables with salt.", "Fresh vanilla beans have no taste or aroma. They must undergo an extensive curing process that results in the release of vanillin with its distinct aroma and flavor. The traditional method begins with subjecting the harvested beans to a process of nightly sweating and daily exposure to the sun for about 10 days, until they become deep chocolate brown in color. This processing and the need for manual pollination make vanilla the second-most expensive spice after saffron."),
-    (10, "Milk", "Milk is white because of its fat content. Although milk is composed of approximately 87% water, which is colorless, the fat and protein molecules floating inside it reflect all light wavelengths, making it appear white.", "Milk alternatives now command over 13% of the milk market. And the numbers are growing. Dairy Milk sales were down more than a billion dollars in 2018, largely due to the growing popularity of plant-based products. The US diary industry has repeatedly attempted to sue producers of dairy alternatives. They believe only animal milk deserves the label “milk.” ", "5 billion litres of milk is sold for drinking each year – that’s enough to fill 2000 Olympic swimming pools or if we were to drink a glass of milk a day for 54 million years"),
-    (11, "Eggs", "Both the egg white and egg yolk contain 3 grams of protein each. So while we traditionally associate egg whites with protein, they don't really have an advantage over their yellow counterpart. The main difference, however, is in the calories. While a single yolk contains 3 grams of protein for 60 calories, a single egg white provides you with 3 grams of protein for just 15 calories. ", "Egg yolks will range in color—from pale yellow to deep orange to even a bright red—based on a hen's diet. Because free-range hens often eat more pigmented, nutritious foods that range from insects to grasses, eggs from these chickens often have richer-colored yolks.", "Eggshells are porous. That means they allow air to move through them. As eggs age, they take in air and develop an air pocket. In general, you can test an egg's freshness by placing it in a cup of water. If the egg floats, it indicates the egg is old and has a large air pocket, in which case you should pass on eating it. If it remains on the bottom, the egg is usually safe to eat."),
-    (12, "Animal", "94% of mammal biomass (excluding humans) is livestock.", "The world now produces more that three times the quantity of meat as it did fifty years ago. ", "Animals are fed corn, wheat and soy that are grown through intensive industrial farming that use large amounts of pesticides, which can remain in their bodies and are passed on to the people who eat them, creating serious health hazards in humans."),
-    (13, "Fish", "Fish is high in heart-healthy omega-3 fatty acids which can reduce inflammation, help protect your heart, and stave off chronic disease.", "Those who consume fish regularly had more grey brain matter, which reduces brain shrinkage and deterioration that can lead to brain function complications", "Aquaculture is one of the fastest growing forms of food production. Global marine and freshwater aquaculture production rose by 527 percent between 1990 and 2018 according to the United Nations Food and Agriculture Organization. "),
-    (14, "Crustacean", "Shellfish aquaculture can  improve water quality. Oysters, clams, and other shellfish eat by filtering nutrients from the water. They remove excess nitrogen from ecosystems, helping to prevent an overgrowth of algae that can lead to dead zones. More than 10 million tons of crustaceans are produced by fishery or farming for human consumption, the majority of it being shrimps and prawn.", "Crustaceans are a very diverse group of invertebrate animals that includes the familiar crabs, lobsters, shrimps, prawns, krill, crayfish, woodlice, and barnacles. Some species extend down to the greatest depths in the sea and have been found in oceanic trenches at depths of up to 10,000 meters (32,800 feet).", "A study found that approximately 2% of the population (around 6 million people) has a seafood allergy (meaning they are allergic to fish, shellfish or both). Shellfish allergy symptoms generally develop within minutes to an hour of eating shellfish. They may include: Hives, itching or eczema (atopic dermatitis) Swelling of the lips, face, tongue and throat, or other parts of the body. Anaphylaxis can be treated with an emergency injection of epinephrine (adrenaline).");
-
-INSERT INTO nutrition (nutrition_id, energy_kcal, energy_kj, fat, saturate, carbohydrate, sugar, starch, fibre, protein, salt)
-values(	1	,	120	,	29	,	0.6	,	0.10	,	2.0	,	1.9	,	0.1	,	1.7	,	2.9	,	0.00	),
-(	2	,	934	,	225	,	16.2	,	6.94	,	0.0	,	0.0	,	0.0	,	0.0	,	19.7	,	0.20	),
-(	3	,	1162	,	276	,	9.2	,	3.51	,	30.5	,	1.8	,	28.7	,	0.0	,	17.8	,	36.40	),
-(	4	,	511	,	124	,	3.3	,	1.39	,	0.6	,	0.6	,	0.0	,	25.3	,	10.4	,	0.05	),
-(	5	,	460	,	109	,	1.0	,	0.30	,	0.0	,	0.0	,	0.0	,	0.0	,	24.9	,	0.73	),
-(	6	,	161	,	38	,	0.5	,	0.10	,	5.9	,	5.5	,	0.2	,	3.9	,	0.7	,	0.10	),
-(	7	,	1700	,	400	,	0.0	,	0.00	,	100.0	,	100.0	,	0.0	,	0.0	,	0.0	,	0.01	),
-(	8	,	1601	,	385	,	17.3	,	2.60	,	31.7	,	31.7	,	0.0	,	27.2	,	12.0	,	0.08	),
-(	9	,	97	,	23	,	0.5	,	0.01	,	1.2	,	0.9	,	0.3	,	2.8	,	2.1	,	0.12	),
-(	10	,	1716	,	414	,	34.9	,	21.68	,	0.1	,	0.1	,	0.0	,	0.0	,	24.9	,	1.81	),
-(	11	,	108	,	26	,	0.5	,	0.10	,	3.6	,	3.6	,	0.0	,	1.3	,	1.1	,	0.01	),
-(	12	,	729	,	173	,	6.4	,	0.90	,	0.0	,	0.0	,	0.0	,	0.0	,	28.9	,	0.15	),
-(	13	,	818	,	196	,	10.9	,	2.89	,	0.0	,	0.0	,	0.0	,	0.0	,	24.4	,	0.25	),
-(	14	,	818	,	196	,	10.9	,	2.89	,	0.0	,	0.0	,	0.0	,	0.0	,	24.4	,	0.25	),
-(	15	,	1645	,	397	,	32.2	,	12.00	,	2.2	,	1.0	,	1.2	,	1.0	,	24.0	,	3.50	),
-(	16	,	106	,	25	,	0.3	,	0.20	,	4.7	,	4.7	,	0.0	,	1.1	,	0.4	,	0.28	),
-(	17	,	1457	,	343	,	0.7	,	0.10	,	83.6	,	0.0	,	83.6	,	0.0	,	0.6	,	0.03	),
-(	18	,	65	,	16	,	0.6	,	0.20	,	1.2	,	1.2	,	0.0	,	0.7	,	1.0	,	0.01	),
-(	19	,	172	,	41	,	1.6	,	0.20	,	1.4	,	1.3	,	0.1	,	3.8	,	3.4	,	0.11	),
-(	20	,	275	,	66	,	3.9	,	2.36	,	4.6	,	4.6	,	0.0	,	0.0	,	3.1	,	0.14	),
-(	21	,	1700	,	400	,	0.0	,	0.00	,	99.5	,	99.5	,	0.0	,	0.0	,	0.5	,	0.01	),
-(	22	,	2041	,	496	,	53.7	,	33.39	,	1.6	,	1.6	,	0.0	,	0.0	,	1.6	,	0.06	),
-(	23	,	548	,	132	,	9.0	,	2.52	,	0.0	,	0.0	,	0.0	,	0.0	,	12.6	,	0.39	),
-(	24	,	727	,	174	,	10.5	,	0	,	3.4	,	0.5	,	2.9	,	2.6	,	15.3	,	1.08	),
-(	25	,	183	,	44	,	1.3	,	0.16	,	2.7	,	2.3	,	0.4	,	5.0	,	2.9	,	0.08	),
-(	26	,	461	,	111	,	2.5	,	1.20	,	12.9	,	0.6	,	12.3	,	12.3	,	3.0	,	0.05	),
-(	27	,	444	,	105	,	0.6	,	0.10	,	14.9	,	1.6	,	13.4	,	4.1	,	7.9	,	0.01	),
-(	28	,	133	,	32	,	0.4	,	0.08	,	3.1	,	2.2	,	0.9	,	3.4	,	2.1	,	0.00	),
-(	29	,	95	,	23	,	0.6	,	0.06	,	0.7	,	0.7	,	0.0	,	1.5	,	2.9	,	0.02	),
-(	30	,	170	,	40	,	0.1	,	0.00	,	7.8	,	6.1	,	0.0	,	2.2	,	1.0	,	0.01	),
-(	31	,	85	,	20	,	0.3	,	0.10	,	2.6	,	2.4	,	0.1	,	1.6	,	0.8	,	0.01	),
-(	32	,	1276	,	303	,	4.8	,	0.12	,	37.9	,	7.3	,	30.6	,	10.4	,	21.8	,	0.53	),
-(	33	,	1914	,	458	,	22.3	,	1.54	,	41.3	,	2.3	,	39.0	,	10.5	,	17.8	,	0.42	),
-(	34	,	1319	,	313	,	3.3	,	1.57	,	56.3	,	19.8	,	36.5	,	14.1	,	7.4	,	0.09	),
-(	35	,	1321	,	319	,	12.9	,	2.14	,	19.1	,	10.3	,	8.8	,	34.9	,	14.1	,	0.17	),
-(	36	,	535	,	130	,	12.7	,	2.67	,	1.3	,	1.3	,	0.0	,	2.5	,	1.4	,	0.01	),
-(	37	,	1305	,	307	,	0.0	,	0.00	,	76.4	,	76.4	,	0.0	,	0.0	,	0.4	,	0.03	),
-(	38	,	1263	,	299	,	1.9	,	0.20	,	41.6	,	1.1	,	40.5	,	17.3	,	24.4	,	0.03	),
-(	39	,	121	,	29	,	0.3	,	0.10	,	0.7	,	0.7	,	0.0	,	2.8	,	0.7	,	0.01	),
-(	40	,	227	,	54	,	0.6	,	0.15	,	10.4	,	10.1	,	0.3	,	1.1	,	0.7	,	0.01	),
-(	41	,	88	,	21	,	0.2	,	0.04	,	0.3	,	0.3	,	0.0	,	0.7	,	2.5	,	0.01	),
-(	42	,	382	,	91	,	2.2	,	0.34	,	0.0	,	0.0	,	0.0	,	0.0	,	17.7	,	1.00	),
-(	43	,	3696	,	899	,	99.9	,	14.30	,	0.0	,	0.0	,	0.0	,	0.0	,	0.0	,	0.00	),
-(	44	,	454	,	111	,	11.0	,	1.70	,	0.0	,	0.0	,	0.0	,	4.0	,	0.9	,	3.33	),
-(	45	,	1716	,	412	,	29.7	,	19.25	,	0.9	,	0.9	,	0.0	,	0.0	,	35.4	,	1.65	),
-(	46	,	392	,	93	,	1.5	,	0.56	,	10.4	,	2.2	,	6.4	,	5.3	,	6.9	,	0.00	),
-(	47	,	1505	,	355	,	1.4	,	0.44	,	73.6	,	0.6	,	73.0	,	4.0	,	10.0	,	0.01	),
-(	48	,	357	,	84	,	0.1	,	0.03	,	17.9	,	0.9	,	17.0	,	2.0	,	1.9	,	0.01	),
-(	49	,	3696	,	899	,	99.9	,	6.60	,	0.0	,	0.0	,	0.0	,	0.0	,	0.0	,	0.00	),
-(	50	,	125	,	30	,	0.3	,	0.00	,	4.2	,	4.2	,	0.0	,	1.5	,	1.8	,	0.03	),
-(	51	,	170	,	40	,	0.1	,	0.00	,	7.8	,	6.1	,	0.0	,	2.2	,	1.0	,	0.01	),
-(	52	,	112	,	27	,	0.2	,	0.05	,	4.3	,	4.2	,	0.0	,	2.2	,	0.8	,	0.00	),
-(	53	,	317	,	76	,	0.0	,	0.00	,	0.2	,	0.2	,	0.0	,	0.0	,	0.2	,	0.02	),
-(	54	,	718	,	173	,	8.6	,	2.54	,	12.1	,	1.3	,	10.8	,	9.3	,	7.1	,	0.22	),
-(	55	,	76	,	18	,	0.1	,	0.00	,	0.9	,	0.9	,	0.0	,	1.4	,	0.9	,	0.01	),
-(	56	,	1465	,	345	,	0.5	,	0.14	,	76.1	,	0.1	,	76.0	,	1.1	,	8.5	,	0.00	),
-(	57	,	3062	,	745	,	82.2	,	52.09	,	0.6	,	0.6	,	0.0	,	0.0	,	0.6	,	1.83	),
-(	58	,	1300	,	314	,	25.0	,	9.15	,	8.8	,	2.6	,	6.2	,	2.8	,	11.9	,	1.18	),
-(	59	,	1213	,	290	,	15.4	,	3.76	,	21.9	,	7.7	,	14.2	,	0.6	,	15.6	,	40.75	),
-(	60	,	736	,	178	,	15.2	,	4.40	,	6.3	,	2.7	,	3.6	,	0.1	,	3.8	,	0.38	),
-(	61	,	1474	,	349	,	2.5	,	0.40	,	62.3	,	3.8	,	58.5	,	11.7	,	13.4	,	0.01	),
-(	62	,	121	,	29	,	0.8	,	0.10	,	1.6	,	1.5	,	0.1	,	2.1	,	2.8	,	0.35	),
-(	63	,	1103	,	266	,	21.3	,	1.70	,	10.6	,	6.7	,	3.9	,	6.8	,	4.7	,	3.80	),
-(	64	,	305	,	73	,	4.2	,	0.50	,	0.6	,	0.2	,	0.3	,	0.4	,	8.1	,	0.01	),
-(	65	,	340	,	81	,	0.2	,	0.04	,	12.9	,	12.9	,	0.0	,	4.7	,	4.4	,	0.12	),
-(	66	,	1220	,	289	,	5.7	,	2.50	,	49.1	,	1.9	,	47.2	,	3.6	,	8.6	,	1.56	),
-(	67	,	3062	,	745	,	82.2	,	52.09	,	0.6	,	0.6	,	0.0	,	0.0	,	0.6	,	0.02	),
-(	68	,	891	,	215	,	16.5	,	6.20	,	0.0	,	0.0	,	0.0	,	0.0	,	16.5	,	2.85	),
-(	69	,	3696	,	899	,	99.9	,	6.60	,	0.0	,	0.0	,	0.0	,	0.0	,	0.0	,	0.00	),
-(	70	,	1474	,	349	,	2.5	,	0.40	,	62.3	,	3.8	,	58.5	,	11.7	,	13.4	,	0.01	),
-(	71	,	413	,	97	,	0.1	,	0.00	,	22.7	,	20.5	,	2.2	,	0.0	,	1.4	,	3.75	),
-(	72	,	71	,	17	,	0.1	,	0.03	,	3.0	,	3.0	,	0.0	,	1.0	,	0.5	,	0.01	),
-(	73	,	377	,	89	,	0.3	,	0.10	,	19.0	,	8.0	,	10.9	,	2.7	,	1.1	,	0.09	),
-(	74	,	317	,	76	,	0.0	,	0.00	,	3.0	,	3.0	,	0.0	,	0.0	,	0.1	,	0.03	),
-(	75	,	1466	,	345	,	1.1	,	0.27	,	76.7	,	0.0	,	76.7	,	0.8	,	6.8	,	0.00	),
-(	76	,	1499	,	354	,	3.1	,	0.58	,	70.6	,	0.8	,	69.8	,	3.3	,	9.3	,	0.00	);
-
-
-INSERT INTO user_table (user_id, user_name, user_surname, gender, user_age, username, password)
-values(1, "Winston", "Churchill", "Male", 78, "Win1", aes_encrypt('church789', 'key1234')),
-	  (2, "Justin", "Timberlake", "Male", 41, "JB", aes_encrypt('password895', 'key1234')),
-	  (3, "David", "Beckham", "Male", 43, "GoldenBalls", aes_encrypt('Balls5', 'key1234')),
-	  (4, "Elvis", "Presley", "Male", 61, "Vegas", aes_encrypt('shookup73', 'key1234')),
-	  (5, "Elizabeth", "Hurley", "Female", 57, "Hurls", aes_encrypt('Granty', 'key1234')),
-	  (6, "Martha", "Stewart", "Female", 18, "MSTEW", aes_encrypt('Food4587', 'key1234')),
-	  (7, "Judi", "Dench", "Female", 82, "Jench", aes_encrypt('password3625', 'key1234')),
-	  (8, "James", "Nesbitt", "Male", 17, "Jbitt", aes_encrypt('Nessy1', 'key1234')),
-	  (9, "Sam", "Smith", "Prefer not to say", 25, "Smithy", aes_encrypt('password7841', 'key1234')),
-	  (10, "Nigella", "Lawson", "Female", 29, "Ellaw", aes_encrypt('Cookery789', 'key1234'));
-
- select user_id, username, cast(aes_decrypt(password, 'key1234') as char(100)) from user_table;
-
-
+    
 INSERT INTO recipe
 values(1, "Spaghetti Bolognese", 'Minced beef with tomato sauce and spaghetti pasta', "Heat a large saucepan over a medium heat. Add a tablespoon of olive oil and once hot add the beef mince and a pinch of salt and pepper. Cook the mince until well browned over a medium-high heat (be careful not to burn the mince. It just needs to be a dark brown colour). Once browned, transfer the mince to a bowl and set aside.
 Add another tablespoon of oil to the saucepan you browned the mince in and turn the heat to medium. Add the onions and a pinch of salt and fry gently for 5-6 minutes, or until softened and translucent. Add the garlic and cook for another 2 minutes. Add the grated carrot then pour the mince and any juices in the bowl back into the saucepan.
@@ -273,8 +172,72 @@ To assemble, melt a little more butter. Lay the tortillas on a board and lightly
 Fold over the tortilla to make a semicircle shape, brush the top with more melted butter and sprinkle over a pinch of cayenne pepper. Cut each tortilla in half and carefully place on the baking sheet.
 Bake for 10 minutes. Leave to cool slightly and serve with the mango salsa, soured cream, guacamole, refried beans and any remaining tomato salsa.","unsalted butter, for cooking, 6 rashers unsmoked bacon, chopped, 6 large free-range eggs, splash milk, 4 flour tortillas, ½ small red onion, finely chopped, 4 tbsp cheddar or Monterey Jack cheese, grated, small handful chopped fresh coriander, cayenne pepper, 150g/5½oz small cherry tomatoes, chopped, ½ red onion, finely chopped, 1–2 tsp finely chopped hot green jalapeño chillies (from a jar), 1 tbsp honey, 1 lime, juice only, pinch cayenne peppe, ¼ tsp salt pinch freshly ground black pepper, 4 tbsp chopped fresh coriander, 1 ripe mango, peeled, stone removed, finely chopped, ½ red onion, finely chopped, 1–2 tsp finely chopped hot green jalapeño chillies (from a jar), 1 lime, juice only, pinch cayenne pepper, ¼ tsp salt pinch freshly ground black pepper, 4 tbsp chopped fresh coriander, 4 tbsp soured cream, guacamole, refried beans", "Breakfast", "Mexican", 40, 25, 4),
       (10, "Healthy Tuna Pasta Salad", "Healthy salad vegetables served with tinned tuna ", "Place the cooked penne into a large bowl with all the other ingredients (the residual heat from the pasta will heat the other ingredients to give you a warm pasta dish).
-Place the grated carrot, cucumber and chopped tomatoes into a separate bowl and mix together. Serve both bowls of salad together at the table, warm, or refrigerate and mix together for a packed lunch salad.","150g/5oz whole wheat pasta, cooked according to packet instructions (to al dente) and drained, 150g/5oz olives, chopped, 150g/5oz canned tuna, drained, 75g/2½oz Parmesan, grated, 2 tbsp olive oil, 3 tbsp chopped fresh flatleaf parsley, 3 carrots, grated or sliced into ribbons using a vegetable peeler, 1 cucumber, seeds removed and grated or sliced into ribbons using a vegetable peeler, 2 tomatoes, chopped", "Lunch", "British", 30, 10, 5);
 
+Place the grated carrot, cucumber and chopped tomatoes into a separate bowl and mix together.
+
+Serve both bowls of salad together at the table, warm, or refrigerate and mix together for a packed lunch salad.","150g/5oz whole wheat pasta, cooked according to packet instructions (to al dente) and drained, 150g/5oz olives, chopped, 150g/5oz canned tuna, drained, 75g/2½oz Parmesan, grated, 2 tbsp olive oil, 3 tbsp chopped fresh flatleaf parsley, 3 carrots, grated or sliced into ribbons using a vegetable peeler, 1 cucumber, seeds removed and grated or sliced into ribbons using a vegetable peeler, 2 tomatoes, chopped", "Lunch", "British", 30, 10, 5);
+
+INSERT INTO collection
+values(1, "Easy Meals", "Easy meals to make recipes"),
+	  (2, "Vegan", "Meals and snacks suitable for vegans"),
+	  (3, "Winter Warmers", "Hearty meals ideal for the cold weather"),
+	  (4, "Brunch", "Filling meals suitable to eat bewteen breakfast and lunch"),
+	  (5, "Seasonal", "Recipes using ingredients that are available seasonally"),
+	  (6, "Vegetarian", "Recipes suitable for vegetarians"),
+	  (7, "Curries", "All things curry"),
+	  (8, "Dinner Party", "Showstopping recipes for dinner parties or to impress your friends and family"),
+	  (9, "Baby Food", "Recipes for babies and toddlers"),
+	  (10, "Healthy", "Healthy recipes for the whole family");
+
+INSERT INTO recipe_collection
+values(1, 1, 1),
+	  (2, 2, 7),
+	  (3, 3, 3),
+	  (4, 4, 1),
+	  (5, 5, 5),
+	  (6, 6, 6),
+	  (7, 7, 3),
+	  (8, 8, 8),
+	  (9, 9, 4),
+	  (10, 10, 10);
+      
+INSERT INTO user_table (user_id, user_name, user_surname, gender, user_age, username, password)
+values(1, "Winston", "Churchill", "Male", 78, "Win1", aes_encrypt('church789', 'key1234')),
+	  (2, "Justin", "Timberlake", "Male", 41, "JB", aes_encrypt('password895', 'key1234')),
+	  (3, "David", "Beckham", "Male", 43, "GoldenBalls", aes_encrypt('Balls5', 'key1234')),
+	  (4, "Elvis", "Presley", "Male", 61, "Vegas", aes_encrypt('shookup73', 'key1234')),
+	  (5, "Elizabeth", "Hurley", "Female", 57, "Hurls", aes_encrypt('Granty', 'key1234')),
+	  (6, "Martha", "Stewart", "Female", 18, "MSTEW", aes_encrypt('Food4587', 'key1234')),
+	  (7, "Judi", "Dench", "Female", 82, "Jench", aes_encrypt('password3625', 'key1234')),
+	  (8, "James", "Nesbitt", "Male", 17, "Jbitt", aes_encrypt('Nessy1', 'key1234')),
+	  (9, "Sam", "Smith", "Prefer not to say", 25, "Smithy", aes_encrypt('password7841', 'key1234')),
+	  (10, "Nigella", "Lawson", "Female", 29, "Ellaw", aes_encrypt('Cookery789', 'key1234'));
+      
+ select user_id, username, cast(aes_decrypt(password, 'key1234') as char(100)) from user_table;
+ 
+INSERT INTO food_group (food_group_id, group_name, group_fact)
+ values(1, "Starchy Carbs", "Carbs give us energy and the slow release carbs are best"),
+	   (2, "Fruit", "Contains vitamins and minerals, an apple a day keeps the doctor away"),
+       (3, "Dairy", "Contains calcium for healthy teeth and stong bones"),
+       (4, "Protein", "Helps muscles to grow and repair, perfect for people who are doing lots of exercise"),
+       (5, "Fats", "Fat helps keep our organs safe but too much of it can be bad for your health"),
+       (6, "Vegetables", "Keep us healthy, make sure you have your five a day");
+       
+INSERT INTO food_source (source_id, source_name, source_fact1, source_fact2, source_fact3)
+values(1, "Vegetable", "Potatoes were the first food to be grown in space. In 1996, potato plants were taken into space with the space shuffle Columbia", "Broccoli in general has a great deal of protein. Calorie for calorie, there is more protein in broccoli than steak. Since it doesn’t come with all those saturated and trans fats or cholesterol, you can get all the protein you need with a significantly lower risk of cardiovascular disease.", "Fruits and veggies have a ton of fiber. It can help keep your bowel movements regular, help lower cholesterol, regulate blood sugar, and help you feel fuller for longer. Pretty much all of those things can lead to you feeling healthier, losing weight, and eating less bad food."),
+	(2, "Root", "The exact balance between sugar, starch and water determines how sweet the root is — from mellow carrots to spiky radishes, from potatoes to peppery turnips", "In the 1600s, Dutch agriculturalists developed carrots that emphasized orange tints and phased out purple. The tinkering didn’t stop there: Researchers at Southern Illinois University report that the British developed high-carotene carrots during World War II in order to enhance pilots’ night vision. Today, geneticists are breeding carrots in a wide color spectrum, including purple, red and yellow, all with slightly different nutritional properties", "Roots’ main job is to deliver water and minerals. They are, in essence, the starting point of the plant’s vascular system. But roots also serve as a plant’s anchor; act as a repository for carbohydrates, sugars, and proteins; and ensure the plant’s survival during the long cold winter months"),
+    (3, "Stem", "Did you know that you can actually eat the stems of many different types of vegetables? For example, broccoli stems can be sliced thinly and sauteed in sesame oil. With that being said, though, the stem vegetable definition tends to focus on plants that are largely just, well, stems and stalks", "Many interesting products come from stems. Granulated sugar is processed from the above-ground stems of sugar cane and sugar beets. Maple sugar is obtained from the trunks of maple trees. Cinnamon comes from the bark of trees in the Cinnamomum genus.", "A stem is one of two main structural axes of a vascular plant, the other being the root. It supports leaves, flowers and fruits, transports water and dissolved substances between the roots and the shoots in the xylem and phloem, stores nutrients, and produces new living tissue."),
+    (4, "Leaf", "Basil fights cancer, lifts mood, combats stress and is beneficial in the flu. There are different types of basil leaves like sweet, Greek, Thai, holy, cinnamon, and lettuce basil, each with its unique set of health benefits. Sweet basil is considered healthy for the heart as well as the brain since it helps to reduce blood pressure, cholesterol, and also improve mental alertness.", "Many leaves of plants are edible and are grown for food. Edible leaves include cabbage, lettuce, grape leaves, parsley, spinach, mustard greens, and Swiss chard.", "The main function of a plant’s leaves is to gather energy from the sun to carry out photosynthesis and make food for the plant. During photosynthesis, leaves use light energy to convert carbon dioxide and water into sugar"),
+    (5, "Flower", "Herb flowers include think chives, lavender, rosemary, thyme, basil, dill, mint, sage, bee balm", "Chamomile is a floral herb used in cooking and traditional medicine for centuries. Medicinally, chamomile is often consumed to reduce anxiety and improve sleep quality", "Cauliflower and Broccoli are two plants whose flower are eaten as vegetables. Cauliflower and broccoli are the plants from cabbage family, whose flower is used to eat as vegetable."),
+    (6, "Fruit", "Tomatoes are very high in the carotenoid Lycopene; eating foods with carotenoids can lower your risk of cancer", "Bananas are a favorite fruit around the world. It tastes good, it’s high in potassium, and it’s delicious when placed in a dish with ice cream and chocolate syrup. Bananas are technically herbs.", "Fruits are an excellent source of essential vitamins and minerals, and they are high in fiber. Fruits also provide a wide range of health-boosting antioxidants, including flavonoids. Eating a diet high in fruits and vegetables can reduce a person's risk of developing heart disease, cancer, inflammation, and diabetes."),
+    (7, "Cereal", "People have been eating whole grains for more than 17,000 years – they picked seeds, rubbed off the husks and chewed the kernels raw or boiled them in water.", "Wheat is the most widely grown cereal grain. It’s grown on over 17 per cent of the total cultivated land in the world, and is the staple food for 35 per cent of the world’s population. It provides more calories and protein in the world’s diet than any other crop.", "Oats and rye were weeds that evolved to imitate wheat and barley to confuse farmers, and only later were farmed on purpose. "),
+    (8, "Oil", "Oils, depending upon the cuisine and the food, can be used in different ways: • For baking: Use butter or a vegetable oil (as it has medium smoking point) • For sautés: Use olive oil • For salads: Use nut oil like almond oil or fruit oil like olive oil", "fats give you energy and cooking oil contains a portion of Omega 3 and Omega 6 fatty acids, which the body cannot do without because it cannot produce these on its own.", "A small amount of dietary fat is an essential part of the diet. It provides us with essential fatty acids (those the body cannot make itself) and helps us to absorb the fat soluble vitamins A, D, E and K"),
+    (9, "Spices", "Spices were among the most demanded and expensive products available in Europe in the Middle Ages, the most common being black pepper, cinnamon (and the cheaper alternative cassia), cumin, nutmeg, ginger and cloves.", "Black pepper is the world’s most traded spice, and is one of the most common spices added to cuisines around the world. It is often described as the “king of spices,” and it shares a place on most dinner tables with salt.", "Fresh vanilla beans have no taste or aroma. They must undergo an extensive curing process that results in the release of vanillin with its distinct aroma and flavor. The traditional method begins with subjecting the harvested beans to a process of nightly sweating and daily exposure to the sun for about 10 days, until they become deep chocolate brown in color. This processing and the need for manual pollination make vanilla the second-most expensive spice after saffron."),
+    (10, "Milk", "Milk is white because of its fat content. Although milk is composed of approximately 87% water, which is colorless, the fat and protein molecules floating inside it reflect all light wavelengths, making it appear white.", "Milk alternatives now command over 13% of the milk market. And the numbers are growing. Dairy Milk sales were down more than a billion dollars in 2018, largely due to the growing popularity of plant-based products. The US diary industry has repeatedly attempted to sue producers of dairy alternatives. They believe only animal milk deserves the label “milk.” ", "5 billion litres of milk is sold for drinking each year – that’s enough to fill 2000 Olympic swimming pools or if we were to drink a glass of milk a day for 54 million years"),
+    (11, "Eggs", "Both the egg white and egg yolk contain 3 grams of protein each. So while we traditionally associate egg whites with protein, they don't really have an advantage over their yellow counterpart. The main difference, however, is in the calories. While a single yolk contains 3 grams of protein for 60 calories, a single egg white provides you with 3 grams of protein for just 15 calories. ", "Egg yolks will range in color—from pale yellow to deep orange to even a bright red—based on a hen's diet. Because free-range hens often eat more pigmented, nutritious foods that range from insects to grasses, eggs from these chickens often have richer-colored yolks.", "Eggshells are porous. That means they allow air to move through them. As eggs age, they take in air and develop an air pocket. In general, you can test an egg's freshness by placing it in a cup of water. If the egg floats, it indicates the egg is old and has a large air pocket, in which case you should pass on eating it. If it remains on the bottom, the egg is usually safe to eat."),
+    (12, "Animal", "94% of mammal biomass (excluding humans) is livestock.", "The world now produces more that three times the quantity of meat as it did fifty years ago. ", "Animals are fed corn, wheat and soy that are grown through intensive industrial farming that use large amounts of pesticides, which can remain in their bodies and are passed on to the people who eat them, creating serious health hazards in humans."),
+    (13, "Fish", "Fish is high in heart-healthy omega-3 fatty acids which can reduce inflammation, help protect your heart, and stave off chronic disease.", "Those who consume fish regularly had more grey brain matter, which reduces brain shrinkage and deterioration that can lead to brain function complications", "Aquaculture is one of the fastest growing forms of food production. Global marine and freshwater aquaculture production rose by 527 percent between 1990 and 2018 according to the United Nations Food and Agriculture Organization. "),
+    (14, "Crustacean", "Shellfish aquaculture can  improve water quality. Oysters, clams, and other shellfish eat by filtering nutrients from the water. They remove excess nitrogen from ecosystems, helping to prevent an overgrowth of algae that can lead to dead zones. More than 10 million tons of crustaceans are produced by fishery or farming for human consumption, the majority of it being shrimps and prawn.", "Crustaceans are a very diverse group of invertebrate animals that includes the familiar crabs, lobsters, shrimps, prawns, krill, crayfish, woodlice, and barnacles. Some species extend down to the greatest depths in the sea and have been found in oceanic trenches at depths of up to 10,000 meters (32,800 feet).", "A study found that approximately 2% of the population (around 6 million people) has a seafood allergy (meaning they are allergic to fish, shellfish or both). Shellfish allergy symptoms generally develop within minutes to an hour of eating shellfish. They may include: Hives, itching or eczema (atopic dermatitis) Swelling of the lips, face, tongue and throat, or other parts of the body. Anaphylaxis can be treated with an emergency injection of epinephrine (adrenaline).");
 
 INSERT INTO food_item (food_id, food_name, ghg_emission, land_use, freshwater_withdraw, food_group_id, source_id, nutrition_id)
 values(	1	,	"asparagus"	,	0.53	,	0.38	,	102.5	,	6	,	3	,	1	),
@@ -355,31 +318,82 @@ values(	1	,	"asparagus"	,	0.53	,	0.38	,	102.5	,	6	,	3	,	1	),
 (	76	,	"brown rice"	,	4.45	,	2.8	,	2248.4	,	1	,	7	,	76	);
 
 
-INSERT INTO collection
-values(1, "Easy Meals", "Easy meals to make recipes"),
-	  (2, "Vegan", "Meals and snacks suitable for vegans"),
-	  (3, "Winter Warmers", "Hearty meals ideal for the cold weather"),
-	  (4, "Brunch", "Filling meals suitable to eat bewteen breakfast and lunch"),
-	  (5, "Seasonal", "Recipes using ingredients that are available seasonally"),
-	  (6, "Vegetarian", "Recipes suitable for vegetarians"),
-	  (7, "Curries", "All things curry"),
-	  (8, "Dinner Party", "Showstopping recipes for dinner parties or to impress your friends and family"),
-	  (9, "Baby Food", "Recipes for babies and toddlers"),
-	  (10, "Healthy", "Healthy recipes for the whole family");
+INSERT INTO nutrition (nutrition_id, energy_kcal, energy_kj, fat, saturate, carbohydrate, sugar, starch, fibre, protein, salt)
+values(	1	,	120	,	29	,	0.6	,	0.10	,	2.0	,	1.9	,	0.1	,	1.7	,	2.9	,	0.00	),
+(	2	,	934	,	225	,	16.2	,	6.94	,	0.0	,	0.0	,	0.0	,	0.0	,	19.7	,	0.20	),
+(	3	,	1162	,	276	,	9.2	,	3.51	,	30.5	,	1.8	,	28.7	,	0.0	,	17.8	,	36.40	),
+(	4	,	511	,	124	,	3.3	,	1.39	,	0.6	,	0.6	,	0.0	,	25.3	,	10.4	,	0.05	),
+(	5	,	460	,	109	,	1.0	,	0.30	,	0.0	,	0.0	,	0.0	,	0.0	,	24.9	,	0.73	),
+(	6	,	161	,	38	,	0.5	,	0.10	,	5.9	,	5.5	,	0.2	,	3.9	,	0.7	,	0.10	),
+(	7	,	1700	,	400	,	0.0	,	0.00	,	100.0	,	100.0	,	0.0	,	0.0	,	0.0	,	0.01	),
+(	8	,	1601	,	385	,	17.3	,	2.60	,	31.7	,	31.7	,	0.0	,	27.2	,	12.0	,	0.08	),
+(	9	,	97	,	23	,	0.5	,	0.01	,	1.2	,	0.9	,	0.3	,	2.8	,	2.1	,	0.12	),
+(	10	,	1716	,	414	,	34.9	,	21.68	,	0.1	,	0.1	,	0.0	,	0.0	,	24.9	,	1.81	),
+(	11	,	108	,	26	,	0.5	,	0.10	,	3.6	,	3.6	,	0.0	,	1.3	,	1.1	,	0.01	),
+(	12	,	729	,	173	,	6.4	,	0.90	,	0.0	,	0.0	,	0.0	,	0.0	,	28.9	,	0.15	),
+(	13	,	818	,	196	,	10.9	,	2.89	,	0.0	,	0.0	,	0.0	,	0.0	,	24.4	,	0.25	),
+(	14	,	818	,	196	,	10.9	,	2.89	,	0.0	,	0.0	,	0.0	,	0.0	,	24.4	,	0.25	),
+(	15	,	1645	,	397	,	32.2	,	12.00	,	2.2	,	1.0	,	1.2	,	1.0	,	24.0	,	3.50	),
+(	16	,	106	,	25	,	0.3	,	0.20	,	4.7	,	4.7	,	0.0	,	1.1	,	0.4	,	0.28	),
+(	17	,	1457	,	343	,	0.7	,	0.10	,	83.6	,	0.0	,	83.6	,	0.0	,	0.6	,	0.03	),
+(	18	,	65	,	16	,	0.6	,	0.20	,	1.2	,	1.2	,	0.0	,	0.7	,	1.0	,	0.01	),
+(	19	,	172	,	41	,	1.6	,	0.20	,	1.4	,	1.3	,	0.1	,	3.8	,	3.4	,	0.11	),
+(	20	,	275	,	66	,	3.9	,	2.36	,	4.6	,	4.6	,	0.0	,	0.0	,	3.1	,	0.14	),
+(	21	,	1700	,	400	,	0.0	,	0.00	,	99.5	,	99.5	,	0.0	,	0.0	,	0.5	,	0.01	),
+(	22	,	2041	,	496	,	53.7	,	33.39	,	1.6	,	1.6	,	0.0	,	0.0	,	1.6	,	0.06	),
+(	23	,	548	,	132	,	9.0	,	2.52	,	0.0	,	0.0	,	0.0	,	0.0	,	12.6	,	0.39	),
+(	24	,	727	,	174	,	10.5	,	0	,	3.4	,	0.5	,	2.9	,	2.6	,	15.3	,	1.08	),
+(	25	,	183	,	44	,	1.3	,	0.16	,	2.7	,	2.3	,	0.4	,	5.0	,	2.9	,	0.08	),
+(	26	,	461	,	111	,	2.5	,	1.20	,	12.9	,	0.6	,	12.3	,	12.3	,	3.0	,	0.05	),
+(	27	,	444	,	105	,	0.6	,	0.10	,	14.9	,	1.6	,	13.4	,	4.1	,	7.9	,	0.01	),
+(	28	,	133	,	32	,	0.4	,	0.08	,	3.1	,	2.2	,	0.9	,	3.4	,	2.1	,	0.00	),
+(	29	,	95	,	23	,	0.6	,	0.06	,	0.7	,	0.7	,	0.0	,	1.5	,	2.9	,	0.02	),
+(	30	,	170	,	40	,	0.1	,	0.00	,	7.8	,	6.1	,	0.0	,	2.2	,	1.0	,	0.01	),
+(	31	,	85	,	20	,	0.3	,	0.10	,	2.6	,	2.4	,	0.1	,	1.6	,	0.8	,	0.01	),
+(	32	,	1276	,	303	,	4.8	,	0.12	,	37.9	,	7.3	,	30.6	,	10.4	,	21.8	,	0.53	),
+(	33	,	1914	,	458	,	22.3	,	1.54	,	41.3	,	2.3	,	39.0	,	10.5	,	17.8	,	0.42	),
+(	34	,	1319	,	313	,	3.3	,	1.57	,	56.3	,	19.8	,	36.5	,	14.1	,	7.4	,	0.09	),
+(	35	,	1321	,	319	,	12.9	,	2.14	,	19.1	,	10.3	,	8.8	,	34.9	,	14.1	,	0.17	),
+(	36	,	535	,	130	,	12.7	,	2.67	,	1.3	,	1.3	,	0.0	,	2.5	,	1.4	,	0.01	),
+(	37	,	1305	,	307	,	0.0	,	0.00	,	76.4	,	76.4	,	0.0	,	0.0	,	0.4	,	0.03	),
+(	38	,	1263	,	299	,	1.9	,	0.20	,	41.6	,	1.1	,	40.5	,	17.3	,	24.4	,	0.03	),
+(	39	,	121	,	29	,	0.3	,	0.10	,	0.7	,	0.7	,	0.0	,	2.8	,	0.7	,	0.01	),
+(	40	,	227	,	54	,	0.6	,	0.15	,	10.4	,	10.1	,	0.3	,	1.1	,	0.7	,	0.01	),
+(	41	,	88	,	21	,	0.2	,	0.04	,	0.3	,	0.3	,	0.0	,	0.7	,	2.5	,	0.01	),
+(	42	,	382	,	91	,	2.2	,	0.34	,	0.0	,	0.0	,	0.0	,	0.0	,	17.7	,	1.00	),
+(	43	,	3696	,	899	,	99.9	,	14.30	,	0.0	,	0.0	,	0.0	,	0.0	,	0.0	,	0.00	),
+(	44	,	454	,	111	,	11.0	,	1.70	,	0.0	,	0.0	,	0.0	,	4.0	,	0.9	,	3.33	),
+(	45	,	1716	,	412	,	29.7	,	19.25	,	0.9	,	0.9	,	0.0	,	0.0	,	35.4	,	1.65	),
+(	46	,	392	,	93	,	1.5	,	0.56	,	10.4	,	2.2	,	6.4	,	5.3	,	6.9	,	0.00	),
+(	47	,	1505	,	355	,	1.4	,	0.44	,	73.6	,	0.6	,	73.0	,	4.0	,	10.0	,	0.01	),
+(	48	,	357	,	84	,	0.1	,	0.03	,	17.9	,	0.9	,	17.0	,	2.0	,	1.9	,	0.01	),
+(	49	,	3696	,	899	,	99.9	,	6.60	,	0.0	,	0.0	,	0.0	,	0.0	,	0.0	,	0.00	),
+(	50	,	125	,	30	,	0.3	,	0.00	,	4.2	,	4.2	,	0.0	,	1.5	,	1.8	,	0.03	),
+(	51	,	170	,	40	,	0.1	,	0.00	,	7.8	,	6.1	,	0.0	,	2.2	,	1.0	,	0.01	),
+(	52	,	112	,	27	,	0.2	,	0.05	,	4.3	,	4.2	,	0.0	,	2.2	,	0.8	,	0.00	),
+(	53	,	317	,	76	,	0.0	,	0.00	,	0.2	,	0.2	,	0.0	,	0.0	,	0.2	,	0.02	),
+(	54	,	718	,	173	,	8.6	,	2.54	,	12.1	,	1.3	,	10.8	,	9.3	,	7.1	,	0.22	),
+(	55	,	76	,	18	,	0.1	,	0.00	,	0.9	,	0.9	,	0.0	,	1.4	,	0.9	,	0.01	),
+(	56	,	1465	,	345	,	0.5	,	0.14	,	76.1	,	0.1	,	76.0	,	1.1	,	8.5	,	0.00	),
+(	57	,	3062	,	745	,	82.2	,	52.09	,	0.6	,	0.6	,	0.0	,	0.0	,	0.6	,	1.83	),
+(	58	,	1300	,	314	,	25.0	,	9.15	,	8.8	,	2.6	,	6.2	,	2.8	,	11.9	,	1.18	),
+(	59	,	1213	,	290	,	15.4	,	3.76	,	21.9	,	7.7	,	14.2	,	0.6	,	15.6	,	40.75	),
+(	60	,	736	,	178	,	15.2	,	4.40	,	6.3	,	2.7	,	3.6	,	0.1	,	3.8	,	0.38	),
+(	61	,	1474	,	349	,	2.5	,	0.40	,	62.3	,	3.8	,	58.5	,	11.7	,	13.4	,	0.01	),
+(	62	,	121	,	29	,	0.8	,	0.10	,	1.6	,	1.5	,	0.1	,	2.1	,	2.8	,	0.35	),
+(	63	,	1103	,	266	,	21.3	,	1.70	,	10.6	,	6.7	,	3.9	,	6.8	,	4.7	,	3.80	),
+(	64	,	305	,	73	,	4.2	,	0.50	,	0.6	,	0.2	,	0.3	,	0.4	,	8.1	,	0.01	),
+(	65	,	340	,	81	,	0.2	,	0.04	,	12.9	,	12.9	,	0.0	,	4.7	,	4.4	,	0.12	),
+(	66	,	1220	,	289	,	5.7	,	2.50	,	49.1	,	1.9	,	47.2	,	3.6	,	8.6	,	1.56	),
+(	67	,	3062	,	745	,	82.2	,	52.09	,	0.6	,	0.6	,	0.0	,	0.0	,	0.6	,	0.02	),
+(	68	,	891	,	215	,	16.5	,	6.20	,	0.0	,	0.0	,	0.0	,	0.0	,	16.5	,	2.85	),
+(	69	,	3696	,	899	,	99.9	,	6.60	,	0.0	,	0.0	,	0.0	,	0.0	,	0.0	,	0.00	),
+(	70	,	1474	,	349	,	2.5	,	0.40	,	62.3	,	3.8	,	58.5	,	11.7	,	13.4	,	0.01	),
+(	71	,	413	,	97	,	0.1	,	0.00	,	22.7	,	20.5	,	2.2	,	0.0	,	1.4	,	3.75	),
+(	72	,	71	,	17	,	0.1	,	0.03	,	3.0	,	3.0	,	0.0	,	1.0	,	0.5	,	0.01	),
+(	73	,	377	,	89	,	0.3	,	0.10	,	19.0	,	8.0	,	10.9	,	2.7	,	1.1	,	0.09	),
+(	74	,	317	,	76	,	0.0	,	0.00	,	3.0	,	3.0	,	0.0	,	0.0	,	0.1	,	0.03	),
+(	75	,	1466	,	345	,	1.1	,	0.27	,	76.7	,	0.0	,	76.7	,	0.8	,	6.8	,	0.00	),
+(	76	,	1499	,	354	,	3.1	,	0.58	,	70.6	,	0.8	,	69.8	,	3.3	,	9.3	,	0.00	);
 
-INSERT INTO recipe_collection
-values(1, 1, 1),
-	  (2, 2, 7),
-	  (3, 3, 3),
-	  (4, 4, 1),
-	  (5, 5, 5),
-	  (6, 6, 6),
-	  (7, 7, 3),
-	  (8, 8, 8),
-	  (9, 9, 4),
-	  (10, 10, 10);
-      
-
-
-
-
+    

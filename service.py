@@ -1,8 +1,4 @@
-from application.models.heroes import Heroes
-from application.models.teams import Teams
-from application import db
-
-#EXAMPLES FROM MARTINA
+#
 # def get_all_heroes():
 #     # alternatively, the db object from application may be used
 #     # heroes = db.session.query(Heroes)

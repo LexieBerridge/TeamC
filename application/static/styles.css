@@ -6,24 +6,22 @@ body {
 .container {
     position: relative;
     max-width: 100%;
-    /* Maximum width */
+    max-height: 50vw;
     margin: 10;
-    /* Center it */
+
     align-items: center;
     background-color: ivory;
     border-image: none;
     justify-content: center;
-    padding: auto;
+    padding: 0;
 }
 
 .container2 {
     position: relative;
     max-width: 100%;
-    /* Maximum width */
     margin: 10;
-    /* Center it */
     align-items: center;
-    background-image: url(Images/sqravo.jpeg);
+    background-image: url(images/sqrgreen.jpeg);
     background-position: center;
     background-size: 100%;
     border-image: none;
@@ -38,37 +36,20 @@ body {
 .titlecontainer {
     position: absolute;
     max-width: 100%;
-    /* Maximum width */
     margin: 0;
-    /* Center it */
     align-items: center;
     background-color: rgb(15, 17, 15);
     border-image: none;
 
 }
 
-.tablecontainer {
-    position: relative;
-    max-width: 60%;
-    /* Maximum width */
-    margin: 0;
-    left: 20%;
-    /* Center it */
-    align-items: center;
-    background-color: rgb(242, 247, 242);
-    border-image: none;
 
-}
 
 .content {
     position: absolute;
-    /* Position the background text */
     bottom: 0;
-    /* At the bottom. Use top:0 to append it to the top */
     color: #f1f1f1;
-    /* Grey text */
     width: 100%;
-    /* Full width */
     text-align: center;
     font-size: 2vw;
     margin: 0;
@@ -104,14 +85,12 @@ td, th {
 
 }
 
-/* unvisited link */
 a:link {
     color: rgb(0, 0, 0);
     text-decoration: none;
     font-family: 'Spectral', serif;
 }
 
-/* Create two equal columns that floats next to each other */
 .col {
     float: left;
     width: 50%;
@@ -132,7 +111,7 @@ a:link {
     border: none;
     text-align: left;
 }
-/* Clear floats after the columns */
+
 .row:after {
     content: "";
     display: table;
@@ -165,21 +144,20 @@ a:link {
     .col {
         width: 100%;
         margin: 0;
-    
+
         padding: 2;
     }
 }
 
 
-@media screen and (min-width: 800px) and (orientation: portrait) {
+@media screen and (min-width: 850px) and (orientation: portrait) {
 
 
     .container2 {
         width: 100%;
         padding: 2;
         margin: 50;
-        background-image: url(Images/files3.jpeg);
+        background-image: "{{ url_for('static', filename='images/files3.jpeg')}}";
     }
 
 }
-

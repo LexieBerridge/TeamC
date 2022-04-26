@@ -38,7 +38,7 @@ create table user_table (
     user_surname VARCHAR(30) NOT NULL,
     gender VARCHAR(20),
     user_age int,
-    username varchar(20) not null unique,
+    username varchar(20) NOT NULL, UNIQUE,
     password varbinary(100) default null
 );
 

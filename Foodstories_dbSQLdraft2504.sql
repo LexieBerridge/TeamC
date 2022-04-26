@@ -53,7 +53,7 @@ create table recipe (
 	recipe_id int AUTO_INCREMENT PRIMARY KEY,
     recipe_name VARCHAR (50),
     recipe_description VARCHAR (200),
-    reipe_method varchar(1500) not null,
+    recipe_method varchar(1500) not null,
     ingredient_quantity varchar(1000) not null,
     course VARCHAR (20) NOT NULL,
     cuisine VARCHAR (30) NOT NULL,

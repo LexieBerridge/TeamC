@@ -1,8 +1,4 @@
 from application import db
-from application.models.user_table import UserTable
-
-#from application.models.teams import Teams
-
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker

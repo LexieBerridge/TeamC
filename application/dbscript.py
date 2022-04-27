@@ -1,4 +1,4 @@
-from application.models.teams import Teams
+#from application.models.teams import Teams
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sess, sessionmaker

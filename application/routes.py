@@ -1,35 +1,28 @@
 import json
-
 from flask import render_template, request, jsonify
-
 import service
+from application import dbscript
 from application import app
+from application.forms import new_user_form
+from application.forms.new_user_form import SignUpForm
+from application.models.user_table import UserTable
+import templates
 
 
-# EXAMPLES FROM MARTINA
-# @app.route("/heroes", methods=['GET'])
-# def show_heroes():
-#     error = ""
-#     heroes = service.get_all_heroes()
-#     if len(heroes) == 0:
-#         error = "There are no heroes to display"
-#     return render_template('hero.html', heroes=heroes, message=error)
-#
-#
-# @app.route('/hero/<int:hero_id>', methods=['GET'])
-# def show_hero(hero_id):
-#     error = ""
-#     hero = service.get_hero_by_id(hero_id)
-#     print(hero.name, hero.alias)
-#     if not hero:
-#         return jsonify("There is no heroes with ID: " + str(hero_id))
-#     return jsonify(hero)
-#
-#
-# @app.route('/teamandheroes/<int:team_id>', methods=['GET'])
-# def team_and_heroes(team_id):
-#     error = ""
-#     team = service.get_team_by_id(team_id)
-#     if not team:
-#         error = "There is no team with ID: " + str(team_id)
-#     return render_template('teams_and_heroes.html', team=team, message=error, title="Team and its Heroes")
+@app.route('/signup', methods =['GET', 'POST'])
+def signup():
+    error = ""
+    form = SignUpForm()
+    if request.method == 'POST':
+        form = SignUpForm(request.form)
+        print(form.user_name.data)
+        user_name = form.user_name.data
+        user_age = form.user_age.data
+        user_password = form.user_password.data
+        if len(user_name) == 0 or len(user_password) == 0 or user_age <= 15:
+            error = "Please supply username and password. You must be over 16 to use this site"
+        else:
+            user = UserTable(user_name=user_name, user_age=user_age)
+            service.add_new_user(user)
+            return render_template('welcome_new_user.html', user_name=user_name, user_age=user_age)
+    return render_template('signup.html', form=form, message=error)

@@ -19,7 +19,6 @@ class UserTable(db.Model):
     username = db.Column(db.String(20), nullable=False)
     password = db.Column(db.String(100))
 
-    liked = db.relationship('Liked', backref='liked')
 
 # TODO: is user's password (varbinary) saved as a str?
 # TODO for float (10) do we save like this:db.Column(db.Float(precision=None, asdecimal=False, decimal_return_scale=None, nullable=False) or is this ok db.Column(db.Float, nullable=False)

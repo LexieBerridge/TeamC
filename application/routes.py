@@ -6,24 +6,27 @@ from application import app
 from application.forms import new_user_form
 from application.forms.new_user_form import SignUpForm
 from application.models.user_table import UserTable
-import templates
+import application.templates
 
+# SIGNUP PAGE: uses a a python class SignUpForm made in new_user_form (in the forms folder) which is presented
+# to the user via Signup.html (templates) and when filled out correctly shows the page welcome_new_user.html (templates)
 @app.route('/signup', methods =['GET', 'POST'])
 def signup():
     error = ""
     form = SignUpForm()
     if request.method == 'POST':
         form = SignUpForm(request.form)
-        print(form.user_name.data)
+        print(form.username.data)
+        username = form.username.data
         user_name = form.user_name.data
-        user_age = form.user_age.data
-        user_password = form.user_password.data
-        if len(user_name) == 0 or len(user_password) == 0 or user_age <= 15:
-            error = "Please supply username and password. You must be over 16 to use this site"
+        # user_age = form.user_age.data
+        password = form.password.data
+        if len(username) == 0 or len(password) == 0 or len(user_name) == 0:
+            error = "Please supply username, password and the name you like to go by"
         else:
-            user = UserTable(user_name=user_name, user_age=user_age)
+            user = UserTable(username=username, user_name=user_name, password=password)
             service.add_new_user(user)
-            return render_template('welcome_new_user.html', user_name=user_name, user_age=user_age)
+            return render_template('welcome_new_user.html', user_name=user_name)
     return render_template('signup.html', form=form, message=error)
 
 @app.route("/home")

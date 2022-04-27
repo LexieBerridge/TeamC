@@ -9,3 +9,4 @@ class Liked(db.Model)
     liked_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user_table.user_id'), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.recipe_id'), nullable=False)
+

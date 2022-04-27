@@ -1,0 +1,163 @@
+body {
+    background-color: rgb(255, 255, 255);
+
+}
+
+.container {
+    position: relative;
+    max-width: 100%;
+    max-height: 50vw;
+    margin: 10;
+
+    align-items: center;
+    background-color: ivory;
+    border-image: none;
+    justify-content: center;
+    padding: 0;
+}
+
+.container2 {
+    position: relative;
+    max-width: 100%;
+    margin: 10;
+    align-items: center;
+    background-image: url(images/sqrgreen.jpeg);
+    background-position: center;
+    background-size: 100%;
+    border-image: none;
+    justify-content: center;
+    width: 100%;
+    height: 50vw;
+    padding: 50px;
+    text-align: center;
+}
+
+
+.titlecontainer {
+    position: absolute;
+    max-width: 100%;
+    margin: 0;
+    align-items: center;
+    background-color: rgb(15, 17, 15);
+    border-image: none;
+
+}
+
+
+
+.content {
+    position: absolute;
+    bottom: 0;
+    color: #f1f1f1;
+    width: 100%;
+    text-align: center;
+    font-size: 2vw;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Cormorant', serif;
+    font-size: 2vw;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Cormorant', serif;
+    font-size: 3.5vw;
+    text-align: center;
+}
+
+p {
+    font-family: 'Spectral', serif;
+    font-size: 2vw;
+    text-align: center;
+    line-height: 2.5vw;
+    color: rgb(173, 173, 166);
+
+}
+
+td, th {
+    font-family: 'Spectral', serif;
+    font-size: 2vw;
+    text-align: LEFT;
+    line-height: 2.5vw;
+    color: rgb(173, 173, 166);
+
+}
+
+a:link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: 'Spectral', serif;
+}
+
+.col {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+}
+.card2 {
+    width: 100%;
+    height: 100%;
+    background-color: ivory;
+    border: none;
+    text-align: left;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .row {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col {
+        width: 100%;
+        margin: 0;
+
+        padding: 2;
+    }
+}
+
+
+@media screen and (min-width: 850px) and (orientation: portrait) {
+
+
+    .container2 {
+        width: 100%;
+        padding: 2;
+        margin: 50;
+        background-image: "{{ url_for('static', filename='images/files3.jpeg')}}";
+    }
+
+}

@@ -8,7 +8,6 @@ from application.forms.new_user_form import SignUpForm
 from application.models.user_table import UserTable
 import templates
 
-
 @app.route('/signup', methods =['GET', 'POST'])
 def signup():
     error = ""
@@ -26,3 +25,13 @@ def signup():
             service.add_new_user(user)
             return render_template('welcome_new_user.html', user_name=user_name, user_age=user_age)
     return render_template('signup.html', form=form, message=error)
+
+@app.route("/home")
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+@app.route("/recipes")
+def recipes():
+    return render_template("recipes.html")
+

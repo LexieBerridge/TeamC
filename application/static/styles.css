@@ -85,7 +85,7 @@ p {
 .pnav {
     font-family: 'Comfortaa', cursive;
     color: #D67D70;
-    font-size: 1.2vw;
+    font-size: 0.9vw;
 }
 
 .pgreen {
@@ -173,9 +173,14 @@ p {
   .card-body {
       background-color: #B8D686;
   }
-  
+  .pnav:hover {
+    font-family: 'Comfortaa', cursive;
+    color: #B8D686;
+    font-size: 0.9vw;
+    }
 
-@media screen and (max-width: 700px) and (min-height: 500px) {
+@media screen and (max-width: 800px) and (min-height: 500px) {
+
     .row {
         width: 100%;
         flex-direction: column;
@@ -183,3 +188,4 @@ p {
     }
 
 }
+

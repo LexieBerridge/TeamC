@@ -6,8 +6,6 @@
 # Ignore SASS config files
 #.sass-cachepycache
 
-.venv
-.idea
-.env
-.sass-cachepycache
-
+.*
+__pycache__/
+venv

@@ -27,6 +27,7 @@ def signup():
             user = UserTable(username=username, user_name=user_name, password=password)
             service.add_new_user(user)
             return render_template('welcome_new_user.html', user_name=user_name)
+            # return redirect ( url_for('user'), user=user)
     return render_template('signup.html', form=form, message=error)
 
 @app.route("/home")
@@ -38,3 +39,6 @@ def home():
 def recipes():
     return render_template("recipes.html")
 
+@app.route('/user_name')
+def user_name():
+    return render_template('welcome_new_user.html', user_name=user_name)

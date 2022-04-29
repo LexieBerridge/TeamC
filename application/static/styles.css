@@ -34,6 +34,14 @@ section {
     height: 100vh;
 }
 
+.head1 {
+    background-image: url(images/head3.jpeg);
+}
+
+.head2 {
+    background-image: url(images/head2.jpeg);
+}
+
 .one {
     background-image: url(images/sqrgreen.jpeg);
 }
@@ -116,30 +124,47 @@ p {
     padding: 10px;
 }
 
-.button {
-    background-color: #D67D70; 
-    border: none;
-    color: white;
-    align-items: center;
-    padding: 15px 32px;
-    text-align: center;
+.pinklink {
+    font-family: 'Comfortaa', cursive;
+    color: #D67D70;
+    font-size: 4vw;
     text-decoration: none;
-    font-size: 6px;
-    width: 100%;
-  }
+}
 
-  .greenbutton {
-    background-color: #B8D686; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    align-items: center;
-    text-align: center;
+.pinklink:hover {
+    font-family: 'Comfortaa', cursive;
+    color: #D9BEBA;
+    font-size: 4vw;
     text-decoration: none;
-    font-size: 6px;
-    width: 100%;
-  }
+}
 
+.link {
+    font-family: 'Comfortaa', cursive;
+    color: #D67D70;
+    font-size: 4vw;
+    text-decoration: none;
+}
+
+.link:hover {
+    font-family: 'Comfortaa', cursive;
+    color: #B8D686;
+    font-size: 4vw;
+    text-decoration: none;
+}
+
+.greenlink {
+    font-family: 'Comfortaa', cursive;
+    color: #B8D686;
+    font-size: 4vw;
+    text-decoration: none;
+}
+
+.greenlink:hover {
+    font-family: 'Comfortaa', cursive;
+    color: #D9BEBA;
+    font-size: 4vw;
+    text-decoration: none;
+}
   thead, th, tr, tbody, .table{
      
      border-color: #B8D686 ;

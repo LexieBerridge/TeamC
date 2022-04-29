@@ -15,7 +15,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- ref stylesheet from static folder -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
     <!--<link rel="stylesheet" href="styles.css">-->
 
     <!-- GOOGLE FONTS -->
@@ -31,17 +31,17 @@
 
 <body>
 
-    <section class="one">
+    <section class="head2">
         <div class="container">
             <nav class="navbar">
                 <div class="container-fluid">
                     <a class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
+                        <a class="nav-link active" aria-current="page" href="/home">
                             <p class="pnav">Home</p>
                         </a>
                     </a>
                     <a class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/recipes">
                             <p class="pnav">Recipes</p>
                         </a>
                     </a>
@@ -65,6 +65,13 @@
                             <p class="pnav">Submit your own</p>
                         </a>
                     </a>
+                    <a class="nav-item">
+                        <a class="nav-link" href="/signup">
+                            <p class="pnav">Favourites</p>
+                        </a>
+                    </a>
+                </div>
+            </nav>
                 </div>
             </nav>
             <div class="center">
@@ -79,12 +86,12 @@
                 <h1> Recipe Title Here</h1>
                 <P> FEATURED INFORMATION MAYBE PYTHON REFERENCE FOR FOOD STORY?</P>
                 <p>
-                    <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                      <p class="pgreen">click to view more</p>
-                    </button>
+                    <a class="pinklink" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                      View Image
+                    </a>
                   </p>
                   <div style="min-height: 120px;">
-                    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                    <div class="collapse collapse-vertical" id="collapseWidthExample">
                       <div class="card-body" style="width: 100%;">
                         <p>Image ref to go here?</p>
                       </div>

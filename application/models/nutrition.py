@@ -29,7 +29,7 @@ class Nutrition(db.Model):
     protein = db.Column(db.Float)
     salt = db.Column(db.Float)
 
-    food_item = db.relationship('Food_item', backref='food_item3')
+    food_item = db.relationship('FoodItem', backref='food_item3')
 
 #     TODO: ask Martina if we need to call any collumn that uses a forgeign ID we need to use a different collumn name
 #       to the one we take the foreign id from. As in when her heroes table took id from teams it called the collumn

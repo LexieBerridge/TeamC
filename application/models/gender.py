@@ -11,4 +11,4 @@ class Gender(db.Model):
     gender_id = db.Column(db.Integer, primary_key=True)
     gender_name = db.Column(db.String(20), nullable=False)
 
-    # user_table = db.relationship('UserTable', backref='user_table')
+    user_table = db.relationship('UserTable', backref='user_table')

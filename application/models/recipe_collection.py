@@ -2,7 +2,7 @@ from application import db
 from dataclasses import dataclass
 
 @dataclass
-class RecipeCollection(db.Model)
+class RecipeCollection(db.Model):
     # the declarations below are important for turning the object into JSON
     recipe_collection_id: int
 

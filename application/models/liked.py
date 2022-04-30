@@ -1,8 +1,9 @@
 from application import db
 from dataclasses import dataclass
 
+
 @dataclass
-class Liked(db.Model)
+class Liked(db.Model):
     # the declarations below are important for turning the object into JSON
     liked_id: int
 

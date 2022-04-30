@@ -1,8 +1,9 @@
 from application import db
 from dataclasses import dataclass
 
+# @dataclass(frozen=True, order=True)
 @dataclass
-class RecipeCollection(db.Model):
+class Collection(db.Model):
     # the declarations below are important for turning the object into JSON
     collection_id: int
     collection_name: str
@@ -12,5 +13,5 @@ class RecipeCollection(db.Model):
     collection_name = db.Column(db.String(50))
     collection_description = db.Column(db.String(100))
 
-    recipe_collection = db.relationship('RecipeCollection', backref='recipe_collection')
+    recipe_collection = db.relationship('RecipeCollection', backref='recipe_collection1')
 

@@ -1,6 +1,7 @@
 from application import db
 from dataclasses import dataclass
 
+
 @dataclass
 class UserTable(db.Model):
     # the declarations below are important for turning the object into JSON

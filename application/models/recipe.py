@@ -3,19 +3,12 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Collection(db.Model):
 class Recipe(db.Model):
     # the declarations below are important for turning the object into JSON
     recipe_id: int
     recipe_name: str
     recipe_description: str
     recipe_method: str
-    ingredient_quantity: str
-    course: str
-    cuisine: str
-    prep_time: str
-    cook_time: str
-    serving: int
     ingredient_quantity: str
     course: str
     cuisine: str
@@ -32,7 +25,7 @@ class Recipe(db.Model):
     cuisine = db.Column(db.String(30), nullable=False)
     prep_time = db.Column(db.String(20), nullable=False)
     cook_time = db.Column(db.String(20), nullable=False)
-    collection = db.Column(db.String(50), nullable=False)
+    serving = db.Column(db.Integer, nullable=False)
 
     ingredient = db.relationship('Ingredient', backref='ingredient2')
     recipe_collection = db.relationship('RecipeCollection', backref='recipe_collection2')

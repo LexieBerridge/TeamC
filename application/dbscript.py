@@ -1,7 +1,5 @@
 from application import db
 
-
-
 from application.models.food_group import FoodGroup
 from application.models.food_source import FoodSource
 from application.models.nutrition import Nutrition
@@ -21,15 +19,23 @@ engine = create_engine('mysql+pymysql://root:password@localhost/foodstories2504'
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# def show_recipe(id):
-#     recipe = session.query(Recipe).filter_by(recipe_id=id).first()
-#     recipe_name = recipe.recipe_name
-#     recipe_description = recipe.recipe_description
+def show_recipe(id):
+    recipe_table = session.query(Recipe).filter_by(recipe_id=id).first()
+    recipe_dict = {'recipe_name': recipe_table.recipe_name, 'recipe_description': recipe_table.recipe_description}
+    return recipe_dict
 
-food = db.session.query(FoodGroup).filter_by(food_group_id=1).first()
-print(food.group_name)
+def search_recipe():
+    search_results = []
+    recipe_table = session.query(Recipe).all()
+    user_search = input('search here for recipes: ')
+    print(f"Here are the results that match your search: {user_search}")
+    for row in recipe_table:
+        if user_search in row.recipe_name or user_search in row.recipe_description:
+            search_results.append(row.recipe_id)
+            print(row.recipe_name)
+            print(row.recipe_method)
+            print(row.recipe_description)
 
-
-# recipe = session.query(Recipe).filter_by(recipe_id=1).first()
-# print(recipe.recipe_name)
-
+# test code
+show_recipe(1)
+search_recipe()
